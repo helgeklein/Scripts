@@ -33,6 +33,7 @@ $content = $content -replace 'class=''language-([^'']+)''\s+lang=''\1''>', 'clas
 
 # Code: replace language specifiers
 $content = $content -replace '<code class="lang-shell">', '<code class="lang-bash">'
+$content = $content -replace '<code class="lang-bat">', '<code class="lang-batch">'
 
 # Replace paragraph tags with newlines
 $content = $content -replace '</?p>', "`r`n"
