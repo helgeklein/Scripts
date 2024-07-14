@@ -49,4 +49,9 @@ $content = $content -replace "(`r)?`n(`r)?`n</(o|u)l>", "`r`n</`$3l>`r`n"
 $content = $content -replace '(?m)^<li>', '   <li>'
 $content = $content -replace '</li>', ''
 
+# Table of content
+[regex] $pattern = "</h1>"
+$content = $pattern.replace($content, "</h1>`r`n`r`n[table-of-content]")
+$content += "`r`n`r`n[/table-of-content]"
+
 $content | Out-File $outputfile
